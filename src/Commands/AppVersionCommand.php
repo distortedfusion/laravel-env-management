@@ -35,7 +35,7 @@ class AppVersionCommand extends Command
             $this->info('Application version set successfully.');
         }
 
-        return $this->line('Current version: <comment>'.$this->laravel['config']['app.version'].'</comment>');
+        $this->line('Current version: <comment>'.$this->laravel['config']['app.version'].'</comment>');
     }
 
     /**
@@ -44,7 +44,7 @@ class AppVersionCommand extends Command
      * @param  string $version
      * @return void
      */
-    protected function writeNewEnvironmentFileWith($version) : void
+    protected function writeNewEnvironmentFileWith(string $version) : void
     {
         file_put_contents($this->laravel->environmentFilePath(), preg_replace(
             $this->versionReplacementPattern(),

@@ -1,5 +1,11 @@
 # Laravel Environment Management
 
+[![Latest Version](https://img.shields.io/github/tag/distortedfusion/laravel-env-management.svg?style=flat-square)](https://github.com/distortedfusion/laravel-env-management/tags)
+[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](https://github.com/distortedfusion/laravel-env-management/blob/master/LICENSE)
+[![Build Status](https://img.shields.io/travis/distortedfusion/laravel-env-management.svg?style=flat-square)](https://travis-ci.org/distortedfusion/laravel-env-management)
+[![Scrutinizer](https://img.shields.io/scrutinizer/g/distortedfusion/laravel-env-management.svg?style=flat-square)](https://scrutinizer-ci.com/g/distortedfusion/laravel-env-management/)
+[![Code Coverage](https://img.shields.io/scrutinizer/coverage/g/distortedfusion/laravel-env-management.svg?style=flat-square)](https://scrutinizer-ci.com/g/distortedfusion/laravel-env-management/?branch=master)
+
 A collection of artisan commands for managing environment variables during CI/CD.
 
 ## Installation
@@ -45,7 +51,7 @@ php artisan app:version
 
 ### Setting the App Key
 
-Setting an existing application key during continuous deployment is useful when running various instances of the same application with a shared backend. Or different applications that share the same session store. 
+Setting an existing application key during continuous deployment is useful when running various instances of the same application with a shared backend. Or different applications that share the same session store.
 
 To set an existing app key, simply run:
 ```sh
