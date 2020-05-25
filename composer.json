@@ -1,0 +1,33 @@
+{
+    "name": "distortedfusion/laravel-env-management",
+    "license": "MIT",
+    "keywords": ["laravel", "env", "management", "distortedfusion"],
+    "authors": [
+        {
+            "name": "Kevin Dierkx",
+            "email": "kevin@distortedfusion.com"
+        }
+    ],
+    "require": {
+        "php": "^7.2",
+        "illuminate/framework": "^6.0 || ^7.0"
+    },
+    "require-dev": {},
+    "scripts": {
+        "phpunit": "phpunit --coverage-text"
+    },
+    "autoload": {
+        "psr-4": {
+            "DistortedFusion\\Env\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "DistortedFusion\\Env\\EnvServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
