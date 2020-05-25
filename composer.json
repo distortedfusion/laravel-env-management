@@ -12,13 +12,20 @@
         "php": "^7.2",
         "laravel/framework": "^6.0 || ^7.0"
     },
-    "require-dev": {},
+    "require-dev": {
+        "orchestra/testbench": "^5.2"
+    },
     "scripts": {
         "phpunit": "phpunit --coverage-text"
     },
     "autoload": {
         "psr-4": {
             "DistortedFusion\\Env\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "DistortedFusion\\Env\\Tests\\": "tests/src/"
         }
     },
     "extra": {

@@ -32,8 +32,7 @@ class KeySetCommand extends KeyGenerateCommand
         $key = $this->argument('key');
 
         // Next, we will replace the application key in the environment file so it is
-        // automatically setup for this developer. This key gets generated using a
-        // secure random byte generator and is later base64 encoded for storage.
+        // automatically setup for this developer.
         if (! $this->setKeyInEnvironmentFile($key)) {
             return;
         }
