@@ -14,8 +14,8 @@ return [
     */
 
     'commands' => [
-        \DistortedFusion\Env\Commands\AppVersionCommand::class,
-        \DistortedFusion\Env\Commands\KeySetCommand::class,
+        DistortedFusion\Env\Commands\AppVersionCommand::class,
+        DistortedFusion\Env\Commands\KeySetCommand::class,
     ],
 
 ];

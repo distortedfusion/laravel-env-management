@@ -4,7 +4,7 @@ namespace DistortedFusion\Env\Commands;
 
 use Illuminate\Console\Command;
 
-class AppVersion extends Command
+class AppVersionCommand extends Command
 {
     /**
      * The name and signature of the console command.
