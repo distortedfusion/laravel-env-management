@@ -7,6 +7,7 @@ use Illuminate\Filesystem\Filesystem;
 abstract class TestCase extends \Orchestra\Testbench\TestCase
 {
     const ENV_STUB = '../stubs/.env';
+    const ENV_EMPTY_STUB = '../stubs/.env_empty';
     const ENV_KEY_STUB = '../stubs/.env_key';
     const ENV_VERSION_STUB = '../stubs/.env_version';
 

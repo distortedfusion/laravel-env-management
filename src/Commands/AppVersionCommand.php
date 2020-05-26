@@ -3,6 +3,7 @@
 namespace DistortedFusion\Env\Commands;
 
 use Illuminate\Console\Command;
+use RuntimeException;
 
 class AppVersionCommand extends Command
 {
@@ -29,6 +30,18 @@ class AppVersionCommand extends Command
      */
     public function handle() : int
     {
+        if (! $this->envHas('APP_VERSION')) {
+            throw new Exceptions\MissingEnvException(
+                'APP_VERSION is not set in the environment file, add APP_VERSION= before using the command.'
+            );
+        }
+
+        if (! $this->laravel['config']->has('app.version')) {
+            throw new Exceptions\MissingConfigException(
+                'app.version not set in the configuration file, add `\'version\' => env(\'APP_VERSION\'),` to the config/app.php config file before using the command..'
+            );
+        }
+
         $currentVersion = $this->laravel['config']['app.version'];
 
         if ($version = $this->argument('version')) {

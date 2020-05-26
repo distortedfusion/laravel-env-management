@@ -2,6 +2,7 @@
 
 namespace DistortedFusion\Env\Tests\Commands;
 
+use DistortedFusion\Env\Commands\Exceptions;
 use DistortedFusion\Env\Tests\TestCase;
 
 class KeySetCommandTest extends TestCase
@@ -37,5 +38,14 @@ class KeySetCommandTest extends TestCase
             ->expectsConfirmation('Do you really wish to run this command?', 'no')
             ->expectsOutput('Command Canceled!')
             ->assertExitCode(1);
+    }
+
+    public function test_missing_env_variable_throws_exception()
+    {
+        $this->createTmpEnv(self::ENV_EMPTY_STUB);
+
+        $this->expectException(Exceptions\MissingEnvException::class);
+
+        $this->artisan('key:set '.self::TEST_KEY);
     }
 }

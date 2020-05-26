@@ -33,6 +33,12 @@ class KeySetCommand extends Command
      */
     public function handle() : int
     {
+        if (! $this->envHas('APP_KEY')) {
+            throw new Exceptions\MissingEnvException(
+                'APP_KEY is not set in the environment file, add APP_KEY= before using the command.'
+            );
+        }
+
         $key = $this->argument('key');
 
         $currentKey = $this->laravel['config']['app.key'];
