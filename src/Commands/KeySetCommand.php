@@ -29,16 +29,16 @@ class KeySetCommand extends Command
     /**
      * Execute the console command.
      *
-     * @return void
+     * @return int
      */
-    public function handle()
+    public function handle() : int
     {
         $key = $this->argument('key');
 
         $currentKey = $this->laravel['config']['app.key'];
 
         if (strlen($currentKey) !== 0 && (! $this->confirmToProceed())) {
-            return $this->info('Please confirm replacing the key, nothing has been changed.');
+            return 1;
         }
 
         $this->writeNewEnvironmentFileWith(
@@ -49,6 +49,8 @@ class KeySetCommand extends Command
         $this->laravel['config']['app.key'] = $key;
 
         $this->info('Application key set successfully.');
+
+        return 0;
     }
 
     /**

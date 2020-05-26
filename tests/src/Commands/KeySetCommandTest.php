@@ -22,9 +22,20 @@ class KeySetCommandTest extends TestCase
         $this->assertSame($this->app['config']['app.key'], self::TEST_KEY);
     }
 
-    public function test_nothing_happens_when_key_is_empty()
+    public function test_nothing_happens_when_key_is_not_empty_in_production_and_confirmation_is_no()
     {
-        $this->artisan('key:set \'\'')
-            ->assertExitCode(0);
+        $this->createTmpEnv(self::ENV_KEY_STUB);
+        $this->app['config']->set('app.key', self::TEST_KEY);
+
+        // Fool the application to be in production to force the confirmation
+        // question.
+        $this->app->detectEnvironment(static function () {
+            return 'production';
+        });
+
+        $this->artisan('key:set '.self::TEST_KEY)
+            ->expectsConfirmation('Do you really wish to run this command?', 'no')
+            ->expectsOutput('Command Canceled!')
+            ->assertExitCode(1);
     }
 }

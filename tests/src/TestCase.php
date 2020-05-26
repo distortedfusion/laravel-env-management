@@ -7,6 +7,8 @@ use Illuminate\Filesystem\Filesystem;
 abstract class TestCase extends \Orchestra\Testbench\TestCase
 {
     const ENV_STUB = '../stubs/.env';
+    const ENV_KEY_STUB = '../stubs/.env_key';
+    const ENV_VERSION_STUB = '../stubs/.env_version';
 
     private $tempDir;
 
@@ -22,10 +24,7 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
         $this->tempDir = __DIR__.'/tmp';
 
         mkdir($this->tempDir);
-        file_put_contents(
-            $this->tempDir.'/.env',
-            file_get_contents(__DIR__.'/'.self::ENV_STUB)
-        );
+        $this->createTmpEnv(self::ENV_STUB);
 
         $this->app->useEnvironmentPath($this->tempDir);
     }
@@ -58,18 +57,6 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
     }
 
     /**
-     * Define environment setup.
-     *
-     * @param  \Illuminate\Foundation\Application  $app
-     *
-     * @return void
-     */
-    protected function getEnvironmentSetUp($app)
-    {
-        $app['config']->set('app.version', '0.0.0');
-    }
-
-    /**
      * Get the TMP dir.
      *
      * @return string
@@ -77,5 +64,19 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
     public function getTmpDir() : string
     {
         return $this->tempDir;
+    }
+
+    /**
+     * Create a temporary .env from the specified stub.
+     *
+     * @param  string $file
+     * @return void
+     */
+    public function createTmpEnv(string $file) : void
+    {
+        file_put_contents(
+            $this->getTmpDir().'/.env',
+            file_get_contents(__DIR__.'/'.$file)
+        );
     }
 }

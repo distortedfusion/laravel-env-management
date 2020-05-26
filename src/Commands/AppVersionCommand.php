@@ -25,10 +25,12 @@ class AppVersionCommand extends Command
     /**
      * Execute the console command.
      *
-     * @return mixed
+     * @return int
      */
-    public function handle()
+    public function handle() : int
     {
+        $currentVersion = $this->laravel['config']['app.version'];
+
         if ($version = $this->argument('version')) {
             $this->writeNewEnvironmentFileWith(
                 $this->versionReplacementPattern(),
@@ -38,9 +40,19 @@ class AppVersionCommand extends Command
             $this->laravel['config']['app.version'] = $version;
 
             $this->info('Application version set successfully.');
+
+            return 0;
         }
 
-        $this->line('Current version: <comment>'.$this->laravel['config']['app.version'].'</comment>');
+        if (empty($currentVersion)) {
+            $this->error('No application version set!');
+
+            return 1;
+        }
+
+        $this->line($this->laravel['config']['app.version']);
+
+        return 0;
     }
 
     /**
