@@ -16,7 +16,14 @@
         "orchestra/testbench": "^5.2"
     },
     "scripts": {
-        "phpunit": "phpunit --coverage-text"
+        "phpunit": "phpunit --coverage-text",
+        "test": [
+            "@phpunit"
+        ]
+    },
+    "scripts-descriptions": {
+        "phpunit": "Runs unit and function tests",
+        "test": "Runs all tests"
     },
     "autoload": {
         "psr-4": {

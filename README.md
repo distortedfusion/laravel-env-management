@@ -8,13 +8,20 @@
 
 A collection of artisan commands for managing environment variables during CI/CD.
 
+## Version Compatibility
+
+ Laravel  | Package
+:---------|:----------
+ 6.x      | >= 1.0
+ 7.x      | >= 1.0
+
 ## Installation
 
 Install the package via composer: `composer require distortedfusion/laravel-env-management`
 
 *This package implements Laravel's Package Discovery, no further changes are needed to your application configs. For more information [please refer to the Laravel documentation](https://laravel.com/docs/packages#package-discovery).*
 
-### Config
+### Configuration
 
 In order to edit the default configuration you need to publish the package configuration to your application config directory:
 
@@ -33,11 +40,16 @@ Simply remove or comment out the command you don't want to be loaded.
 
 All commands are enabled by default, refer to [disabling commands](https://github.com/distortedfusion/laravel-env-management#disabling-commands) if you don't require all commands.
 
-### Getting/Setting the App Version
+### `app:version` - Get or set the application version
 
-Setting an application version isn't a default Laravel feature.
+Setting an application version isn't a built in Laravel feature.
 
-For this to work you first need to add `APP_VERSION=` to your `.env` file and `'version' => env('APP_VERSION'),` to your `config/app.php`.
+**Please note:** For this command you need to make changes to your application!
+
+- Add `APP_VERSION=` to your `.env` file, this is used to permanently store the application version.
+- Add the `version` config variable to your `config/app.php` like, `'version' => env('APP_VERSION'),`.
+
+#### Usage
 
 To set a version, simply run:
 ```sh
@@ -49,14 +61,28 @@ Running the command without specifying a version returns the currently set versi
 php artisan app:version
 ```
 
-### Setting the App Key
+### `key:set` - Set the application key
 
 Setting an existing application key during continuous deployment is useful when running various instances of the same application with a shared backend. Or different applications that share the same session store.
+
+#### Usage
 
 To set an existing app key, simply run:
 ```sh
 php artisan key:set base64:SGVsbG8gV29ybGQh
 ```
+
+## Testing
+
+To run the tests, run the following command from the project folder.
+
+``` bash
+$ composer test
+```
+
+## Contributing
+
+Contributions are welcome and will be [fully credited](https://github.com/distortedfusion/laravel-env-management/graphs/contributors). Please see [CONTRIBUTING](.github/CONTRIBUTING.md) for details.
 
 ## License
 The MIT License (MIT). Please see [License File](https://github.com/distortedfusion/laravel-env-management/blob/master/LICENSE) for more information.
