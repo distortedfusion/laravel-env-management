@@ -38,7 +38,8 @@ class KeySetCommand extends Command
         $currentKey = $this->laravel['config']['app.key'];
 
         if (strlen($currentKey) !== 0 && (! $this->confirmToProceed())) {
-            return $this->info('Please confirm replacing the key, nothing has been changed.');
+            $this->info('Please confirm replacing the key, nothing has been changed.');
+            return;
         }
 
         $this->writeNewEnvironmentFileWith(
