@@ -35,7 +35,7 @@ class EnvServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        if (! defined('ENV_MANAGEMENT_PATH')) {
+        if (!defined('ENV_MANAGEMENT_PATH')) {
             define('ENV_MANAGEMENT_PATH', realpath(__DIR__.'/../'));
         }
 
