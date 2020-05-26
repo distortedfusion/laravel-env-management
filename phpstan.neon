@@ -6,3 +6,4 @@ parameters:
         - src
         - tests
 
+    checkMissingIterableValueType: false
