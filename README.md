@@ -58,5 +58,21 @@ To set an existing app key, simply run:
 php artisan key:set base64:SGVsbG8gV29ybGQh
 ```
 
+## Contributing
+
+Missing a feature or seeing room for improvement? Feel free to open a PR.
+
+We use PHPUnit and PHPStan for testing and static analysis:
+```
+vendor/bin/phpunit
+
+## or in the case that you want to generate coverage:
+phpdbg -qrr vendor/bin/phpunit
+```  
+
+```
+vendor/bin/phpstan analyze
+```
+
 ## License
 The MIT License (MIT). Please see [License File](https://github.com/distortedfusion/laravel-env-management/blob/master/LICENSE) for more information.

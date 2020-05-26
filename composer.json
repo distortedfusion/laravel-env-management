@@ -13,10 +13,12 @@
         "illuminate/console": "^6.0 || ^7.0"
     },
     "require-dev": {
-        "orchestra/testbench": "^5.2"
+        "orchestra/testbench": "^5.2",
+        "phpstan/phpstan": "^0.12.25"
     },
     "scripts": {
-        "phpunit": "phpunit --coverage-text"
+        "phpunit": "phpunit --coverage-text",
+        "phpstan": "phpstan analyze"
     },
     "autoload": {
         "psr-4": {
