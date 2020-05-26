@@ -31,19 +31,17 @@ class KeySetCommand extends Command
      *
      * @return int
      */
-    public function handle() : int
+    public function handle(): int
     {
-        if (!$this->envHas('APP_KEY')) {
-            throw new Exceptions\MissingEnvException(
-                'APP_KEY is not set in the environment file, add APP_KEY= before using the command.'
-            );
+        if (! $this->envHas('APP_KEY')) {
+            throw new Exceptions\MissingEnvException('APP_KEY is not set in the environment file, add APP_KEY= before using the command.');
         }
 
         $key = $this->argument('key');
 
         $currentKey = $this->laravel['config']['app.key'];
 
-        if (strlen($currentKey) !== 0 && (!$this->confirmToProceed())) {
+        if (strlen($currentKey) !== 0 && (! $this->confirmToProceed())) {
             return 1;
         }
 

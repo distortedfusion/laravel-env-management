@@ -18,7 +18,7 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
      *
      * @return void
      */
-    protected function setUp() : void
+    protected function setUp(): void
     {
         parent::setUp();
 
@@ -35,9 +35,9 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
      *
      * @return void
      */
-    protected function tearDown() : void
+    protected function tearDown(): void
     {
-        $files = new Filesystem;
+        $files = new Filesystem();
         $files->deleteDirectory($this->tempDir);
 
         parent::tearDown();
@@ -46,7 +46,7 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
     /**
      * Get package providers.
      *
-     * @param  \Illuminate\Foundation\Application  $app
+     * @param \Illuminate\Foundation\Application $app
      *
      * @return array
      */
@@ -62,7 +62,7 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
      *
      * @return string
      */
-    public function getTmpDir() : string
+    public function getTmpDir(): string
     {
         return $this->tempDir;
     }
@@ -70,10 +70,11 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
     /**
      * Create a temporary .env from the specified stub.
      *
-     * @param  string $file
+     * @param string $file
+     *
      * @return void
      */
-    public function createTmpEnv(string $file) : void
+    public function createTmpEnv(string $file): void
     {
         file_put_contents(
             $this->getTmpDir().'/.env',

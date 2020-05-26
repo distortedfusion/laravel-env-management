@@ -2,4 +2,6 @@
 
 namespace DistortedFusion\Env\Commands\Exceptions;
 
-class MissingConfigException extends \RuntimeException {}
+class MissingConfigException extends \RuntimeException
+{
+}
