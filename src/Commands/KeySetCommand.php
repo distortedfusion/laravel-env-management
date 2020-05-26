@@ -2,10 +2,14 @@
 
 namespace DistortedFusion\Env\Commands;
 
-use Illuminate\Foundation\Console\KeyGenerateCommand;
+use Illuminate\Console\Command;
+use Illuminate\Console\ConfirmableTrait;
 
-class KeySetCommand extends KeyGenerateCommand
+class KeySetCommand extends Command
 {
+    use Concerns\WritesToEnv;
+    use ConfirmableTrait;
+
     /**
      * The name and signature of the console command.
      *
@@ -31,14 +35,31 @@ class KeySetCommand extends KeyGenerateCommand
     {
         $key = $this->argument('key');
 
-        // Next, we will replace the application key in the environment file so it is
-        // automatically setup for this developer.
-        if (! $this->setKeyInEnvironmentFile($key)) {
-            return;
+        $currentKey = $this->laravel['config']['app.key'];
+
+        if (strlen($currentKey) !== 0 && (! $this->confirmToProceed())) {
+            return $this->info('Please confirm replacing the key, nothing has been changed.');
         }
+
+        $this->writeNewEnvironmentFileWith(
+            $this->keyReplacementPattern(),
+            'APP_KEY='.$key
+        );
 
         $this->laravel['config']['app.key'] = $key;
 
         $this->info('Application key set successfully.');
+    }
+
+    /**
+     * Get a regex pattern that will match env APP_KEY with any random key.
+     *
+     * @return string
+     */
+    protected function keyReplacementPattern()
+    {
+        $escaped = preg_quote('='.$this->laravel['config']['app.key'], '/');
+
+        return "/^APP_KEY{$escaped}/m";
     }
 }

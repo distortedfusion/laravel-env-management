@@ -6,6 +6,8 @@ use Illuminate\Console\Command;
 
 class AppVersionCommand extends Command
 {
+    use Concerns\WritesToEnv;
+
     /**
      * The name and signature of the console command.
      *
@@ -28,7 +30,10 @@ class AppVersionCommand extends Command
     public function handle()
     {
         if ($version = $this->argument('version')) {
-            $this->writeNewEnvironmentFileWith($version);
+            $this->writeNewEnvironmentFileWith(
+                $this->versionReplacementPattern(),
+                'APP_VERSION='.$version
+            );
 
             $this->laravel['config']['app.version'] = $version;
 
@@ -36,21 +41,6 @@ class AppVersionCommand extends Command
         }
 
         $this->line('Current version: <comment>'.$this->laravel['config']['app.version'].'</comment>');
-    }
-
-    /**
-     * Write a new environment file with the given version.
-     *
-     * @param  string $version
-     * @return void
-     */
-    protected function writeNewEnvironmentFileWith(string $version) : void
-    {
-        file_put_contents($this->laravel->environmentFilePath(), preg_replace(
-            $this->versionReplacementPattern(),
-            'APP_VERSION='.$version,
-            file_get_contents($this->laravel->environmentFilePath())
-        ));
     }
 
     /**
