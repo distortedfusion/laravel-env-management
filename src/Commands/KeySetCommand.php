@@ -33,7 +33,7 @@ class KeySetCommand extends Command
      */
     public function handle() : int
     {
-        if (! $this->envHas('APP_KEY')) {
+        if (!$this->envHas('APP_KEY')) {
             throw new Exceptions\MissingEnvException(
                 'APP_KEY is not set in the environment file, add APP_KEY= before using the command.'
             );
