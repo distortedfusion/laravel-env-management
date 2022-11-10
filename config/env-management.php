@@ -16,6 +16,7 @@ return [
     'commands' => [
         DistortedFusion\Env\Commands\AppUrlCommand::class,
         DistortedFusion\Env\Commands\AppVersionCommand::class,
+        DistortedFusion\Env\Commands\EnvSetCommand::class,
         DistortedFusion\Env\Commands\KeySetCommand::class,
     ],
 
