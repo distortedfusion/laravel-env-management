@@ -1,22 +1,39 @@
 {
     "name": "distortedfusion/laravel-env-management",
+    "description": "A collection of artisan commands for managing environment variables during CI/CD.",
+    "homepage": "https://github.com/distortedfusion/laravel-env-management",
     "license": "MIT",
-    "keywords": ["laravel", "env", "management", "distortedfusion"],
+    "keywords": ["distortedfusion", "laravel", "env", "management"],
     "authors": [
         {
             "name": "Kevin Dierkx",
             "email": "kevin@distortedfusion.com"
+        },
+        {
+            "name": "Contributors",
+            "homepage": "https://github.com/distortedfusion/laravel-env-management/graphs/contributors"
         }
     ],
     "require": {
-        "php": "^7.2",
-        "illuminate/console": "^6.0 || ^7.0"
+        "php": "^8.0",
+        "illuminate/console": "^9.35"
     },
     "require-dev": {
-        "orchestra/testbench": "^5.2",
-        "friendsofphp/php-cs-fixer": "^2.16"
+        "distortedfusion/php-cs-fixer-config": "^2.0",
+        "orchestra/testbench": "^7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "DistortedFusion\\Env\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "DistortedFusion\\Env\\Tests\\": "tests/src/"
+        }
     },
     "scripts": {
+        "phpcs-fix" : "php-cs-fixer fix --using-cache=no --allow-risky=yes --ansi",
         "phpcs": "php-cs-fixer fix -v --diff --dry-run --allow-risky=yes --ansi",
         "phpunit": "phpunit --coverage-text",
         "test": [
@@ -29,22 +46,15 @@
         "phpunit": "Runs unit and function tests",
         "test": "Runs all tests"
     },
-    "autoload": {
-        "psr-4": {
-            "DistortedFusion\\Env\\": "src/"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "DistortedFusion\\Env\\Tests\\": "tests/src/"
-        }
-    },
     "extra": {
         "laravel": {
             "providers": [
                 "DistortedFusion\\Env\\EnvServiceProvider"
             ]
         }
+    },
+    "config": {
+        "sort-packages": true
     },
     "minimum-stability": "dev",
     "prefer-stable": true
