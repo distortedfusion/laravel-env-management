@@ -4,8 +4,6 @@ namespace DistortedFusion\Env\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Console\ConfirmableTrait;
-use Illuminate\Support\Facades\App;
-use Illuminate\Support\Str;
 use InvalidArgumentException;
 
 class EnvSetCommand extends Command
