@@ -23,16 +23,12 @@ class KeySetCommandTest extends TestCase
         $this->assertSame($this->app['config']['app.key'], self::TEST_KEY);
     }
 
-    public function testNothingHappensWhenKeyIsNotEmptyInProductionAndConfirmationIsNo()
+    public function testNothingHappensWhenInProductionAndConfirmationIsNo()
     {
         $this->createTmpEnv(self::ENV_KEY_STUB);
         $this->app['config']->set('app.key', self::TEST_KEY);
 
-        // Fool the application to be in production to force the confirmation
-        // question.
-        $this->app->detectEnvironment(static function () {
-            return 'production';
-        });
+        $this->app->detectEnvironment(static fn () => 'production');
 
         $this->artisan('key:set '.self::TEST_KEY)
             ->expectsConfirmation('Do you really wish to run this command?', 'no')

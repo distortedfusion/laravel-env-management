@@ -6,6 +6,8 @@ use Illuminate\Filesystem\Filesystem;
 
 abstract class TestCase extends \Orchestra\Testbench\TestCase
 {
+    use ReflectionHelper;
+
     public const ENV_EMPTY_STUB = '../stubs/.env_empty';
     public const ENV_KEY_STUB = '../stubs/.env_key';
     public const ENV_STUB = '../stubs/.env';

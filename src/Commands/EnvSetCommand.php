@@ -55,7 +55,7 @@ class EnvSetCommand extends Command
 
         // Wrap strings containing whitespace characters or `=`...
         if (preg_match('/\s/', $value) || strpos($value, '=') !== false) {
-            $value = '"'.$value.'"';
+            $value = '"'.str_replace('"', '\"', $value).'"';
         }
 
         $keyValuePair = $key.'='.$value;
