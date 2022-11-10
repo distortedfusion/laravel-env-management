@@ -36,7 +36,6 @@ class KeySetCommandTest extends TestCase
 
         $this->artisan('key:set '.self::TEST_KEY)
             ->expectsConfirmation('Do you really wish to run this command?', 'no')
-            ->expectsOutput('Command Canceled!')
             ->assertExitCode(1);
     }
 
