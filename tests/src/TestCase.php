@@ -6,11 +6,11 @@ use Illuminate\Filesystem\Filesystem;
 
 abstract class TestCase extends \Orchestra\Testbench\TestCase
 {
-    const ENV_EMPTY_STUB = '../stubs/.env_empty';
-    const ENV_KEY_STUB = '../stubs/.env_key';
-    const ENV_STUB = '../stubs/.env';
-    const ENV_URL_STUB = '../stubs/.env_url';
-    const ENV_VERSION_STUB = '../stubs/.env_version';
+    public const ENV_EMPTY_STUB = '../stubs/.env_empty';
+    public const ENV_KEY_STUB = '../stubs/.env_key';
+    public const ENV_STUB = '../stubs/.env';
+    public const ENV_URL_STUB = '../stubs/.env_url';
+    public const ENV_VERSION_STUB = '../stubs/.env_version';
 
     private $tempDir;
 

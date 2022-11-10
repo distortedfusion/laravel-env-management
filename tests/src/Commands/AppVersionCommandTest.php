@@ -7,7 +7,7 @@ use DistortedFusion\Env\Tests\TestCase;
 
 class AppVersionCommandTest extends TestCase
 {
-    public function test_getting_version_when_none_is_set_shows_error()
+    public function testGettingVersionWhenNoneIsSetShowsError()
     {
         $this->createTmpEnv(self::ENV_STUB);
         $this->app['config']->set('app.version', null);
@@ -17,7 +17,7 @@ class AppVersionCommandTest extends TestCase
             ->assertExitCode(1);
     }
 
-    public function test_getting_version_shows_current_version()
+    public function testGettingVersionShowsCurrentVersion()
     {
         $this->createTmpEnv(self::ENV_VERSION_STUB);
         $this->app['config']->set('app.version', '0.0.0');
@@ -27,7 +27,7 @@ class AppVersionCommandTest extends TestCase
             ->assertExitCode(0);
     }
 
-    public function test_setting_version_persists_version_in_env_and_sets_config()
+    public function testSettingVersionPersistsVersionInEnvAndSetsConfig()
     {
         $this->createTmpEnv(self::ENV_VERSION_STUB);
         $this->app['config']->set('app.version', '0.0.0');
@@ -48,7 +48,7 @@ class AppVersionCommandTest extends TestCase
             ->assertExitCode(0);
     }
 
-    public function test_missing_env_variable_throws_exception()
+    public function testMissingEnvVariableThrowsException()
     {
         $this->createTmpEnv(self::ENV_EMPTY_STUB);
 
@@ -57,7 +57,7 @@ class AppVersionCommandTest extends TestCase
         $this->artisan('app:version 9.9.9');
     }
 
-    public function test_missing_config_variable_throws_exception()
+    public function testMissingConfigVariableThrowsException()
     {
         $this->createTmpEnv(self::ENV_VERSION_STUB);
 

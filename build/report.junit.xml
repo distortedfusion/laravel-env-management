@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="" tests="12" assertions="32" errors="0" warnings="0" failures="1" skipped="0" time="0.819127">
+    <testsuite name="all" tests="12" assertions="32" errors="0" warnings="0" failures="1" skipped="0" time="0.819127">
+      <testsuite name="DistortedFusion\Env\Tests\Commands\AppUrlCommandTest" file="/home/vagrant/code/distortedfusion/laravel-env-management/tests/src/Commands/AppUrlCommandTest.php" tests="4" assertions="11" errors="0" warnings="0" failures="0" skipped="0" time="0.574510">
+        <testcase name="testGettingUrlWhenNoneIsSetShowsError" class="DistortedFusion\Env\Tests\Commands\AppUrlCommandTest" classname="DistortedFusion.Env.Tests.Commands.AppUrlCommandTest" file="/home/vagrant/code/distortedfusion/laravel-env-management/tests/src/Commands/AppUrlCommandTest.php" line="10" assertions="2" time="0.488609"/>
+        <testcase name="testGettingUrlShowsCurrentUrl" class="DistortedFusion\Env\Tests\Commands\AppUrlCommandTest" classname="DistortedFusion.Env.Tests.Commands.AppUrlCommandTest" file="/home/vagrant/code/distortedfusion/laravel-env-management/tests/src/Commands/AppUrlCommandTest.php" line="20" assertions="2" time="0.025413"/>
+        <testcase name="testSettingUrlPersistsUrlInEnvAndSetsConfig" class="DistortedFusion\Env\Tests\Commands\AppUrlCommandTest" classname="DistortedFusion.Env.Tests.Commands.AppUrlCommandTest" file="/home/vagrant/code/distortedfusion/laravel-env-management/tests/src/Commands/AppUrlCommandTest.php" line="30" assertions="6" time="0.031070"/>
+        <testcase name="testMissingEnvVariableThrowsException" class="DistortedFusion\Env\Tests\Commands\AppUrlCommandTest" classname="DistortedFusion.Env.Tests.Commands.AppUrlCommandTest" file="/home/vagrant/code/distortedfusion/laravel-env-management/tests/src/Commands/AppUrlCommandTest.php" line="51" assertions="1" time="0.029418"/>
+      </testsuite>
+      <testsuite name="DistortedFusion\Env\Tests\Commands\AppVersionCommandTest" file="/home/vagrant/code/distortedfusion/laravel-env-management/tests/src/Commands/AppVersionCommandTest.php" tests="5" assertions="12" errors="0" warnings="0" failures="0" skipped="0" time="0.126135">
+        <testcase name="testGettingVersionWhenNoneIsSetShowsError" class="DistortedFusion\Env\Tests\Commands\AppVersionCommandTest" classname="DistortedFusion.Env.Tests.Commands.AppVersionCommandTest" file="/home/vagrant/code/distortedfusion/laravel-env-management/tests/src/Commands/AppVersionCommandTest.php" line="10" assertions="2" time="0.023853"/>
+        <testcase name="testGettingVersionShowsCurrentVersion" class="DistortedFusion\Env\Tests\Commands\AppVersionCommandTest" classname="DistortedFusion.Env.Tests.Commands.AppVersionCommandTest" file="/home/vagrant/code/distortedfusion/laravel-env-management/tests/src/Commands/AppVersionCommandTest.php" line="20" assertions="2" time="0.022952"/>
+        <testcase name="testSettingVersionPersistsVersionInEnvAndSetsConfig" class="DistortedFusion\Env\Tests\Commands\AppVersionCommandTest" classname="DistortedFusion.Env.Tests.Commands.AppVersionCommandTest" file="/home/vagrant/code/distortedfusion/laravel-env-management/tests/src/Commands/AppVersionCommandTest.php" line="30" assertions="6" time="0.027678"/>
+        <testcase name="testMissingEnvVariableThrowsException" class="DistortedFusion\Env\Tests\Commands\AppVersionCommandTest" classname="DistortedFusion.Env.Tests.Commands.AppVersionCommandTest" file="/home/vagrant/code/distortedfusion/laravel-env-management/tests/src/Commands/AppVersionCommandTest.php" line="51" assertions="1" time="0.025685"/>
+        <testcase name="testMissingConfigVariableThrowsException" class="DistortedFusion\Env\Tests\Commands\AppVersionCommandTest" classname="DistortedFusion.Env.Tests.Commands.AppVersionCommandTest" file="/home/vagrant/code/distortedfusion/laravel-env-management/tests/src/Commands/AppVersionCommandTest.php" line="60" assertions="1" time="0.025966"/>
+      </testsuite>
+      <testsuite name="DistortedFusion\Env\Tests\Commands\KeySetCommandTest" file="/home/vagrant/code/distortedfusion/laravel-env-management/tests/src/Commands/KeySetCommandTest.php" tests="3" assertions="9" errors="0" warnings="0" failures="1" skipped="0" time="0.118482">
+        <testcase name="testSettingKeyPersistsKeyInEnv" class="DistortedFusion\Env\Tests\Commands\KeySetCommandTest" classname="DistortedFusion.Env.Tests.Commands.KeySetCommandTest" file="/home/vagrant/code/distortedfusion/laravel-env-management/tests/src/Commands/KeySetCommandTest.php" line="12" assertions="4" time="0.028152"/>
+        <testcase name="testNothingHappensWhenKeyIsNotEmptyInProductionAndConfirmationIsNo" class="DistortedFusion\Env\Tests\Commands\KeySetCommandTest" classname="DistortedFusion.Env.Tests.Commands.KeySetCommandTest" file="/home/vagrant/code/distortedfusion/laravel-env-management/tests/src/Commands/KeySetCommandTest.php" line="26" assertions="4" time="0.064424">
+          <failure type="PHPUnit\Framework\AssertionFailedError">DistortedFusion\Env\Tests\Commands\KeySetCommandTest::testNothingHappensWhenKeyIsNotEmptyInProductionAndConfirmationIsNo
+Output "Command Canceled!" was not printed.
+
+/home/vagrant/code/distortedfusion/laravel-env-management/vendor/laravel/framework/src/Illuminate/Testing/PendingCommand.php:347
+/home/vagrant/code/distortedfusion/laravel-env-management/vendor/laravel/framework/src/Illuminate/Testing/PendingCommand.php:317
+/home/vagrant/code/distortedfusion/laravel-env-management/vendor/laravel/framework/src/Illuminate/Testing/PendingCommand.php:481
+/home/vagrant/code/distortedfusion/laravel-env-management/tests/src/Commands/KeySetCommandTest.php:40</failure>
+        </testcase>
+        <testcase name="testMissingEnvVariableThrowsException" class="DistortedFusion\Env\Tests\Commands\KeySetCommandTest" classname="DistortedFusion.Env.Tests.Commands.KeySetCommandTest" file="/home/vagrant/code/distortedfusion/laravel-env-management/tests/src/Commands/KeySetCommandTest.php" line="43" assertions="1" time="0.025905"/>
+      </testsuite>
+    </testsuite>
+  </testsuite>
+</testsuites>

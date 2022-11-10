@@ -7,7 +7,7 @@ use DistortedFusion\Env\Tests\TestCase;
 
 class AppUrlCommandTest extends TestCase
 {
-    public function test_getting_url_when_none_is_set_shows_error()
+    public function testGettingUrlWhenNoneIsSetShowsError()
     {
         $this->createTmpEnv(self::ENV_STUB);
         $this->app['config']->set('app.url', null);
@@ -17,7 +17,7 @@ class AppUrlCommandTest extends TestCase
             ->assertExitCode(1);
     }
 
-    public function test_getting_url_shows_current_url()
+    public function testGettingUrlShowsCurrentUrl()
     {
         $this->createTmpEnv(self::ENV_URL_STUB);
         $this->app['config']->set('app.url', 'http://localhost');
@@ -27,7 +27,7 @@ class AppUrlCommandTest extends TestCase
             ->assertExitCode(0);
     }
 
-    public function test_setting_url_persists_url_in_env_and_sets_config()
+    public function testSettingUrlPersistsUrlInEnvAndSetsConfig()
     {
         $this->createTmpEnv(self::ENV_URL_STUB);
         $this->app['config']->set('app.url', 'http://localhost');
@@ -48,7 +48,7 @@ class AppUrlCommandTest extends TestCase
             ->assertExitCode(0);
     }
 
-    public function test_missing_env_variable_throws_exception()
+    public function testMissingEnvVariableThrowsException()
     {
         $this->createTmpEnv(self::ENV_EMPTY_STUB);
 

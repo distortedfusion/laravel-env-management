@@ -7,9 +7,9 @@ use DistortedFusion\Env\Tests\TestCase;
 
 class KeySetCommandTest extends TestCase
 {
-    const TEST_KEY = 'base64:SGVsbG8gV29ybGQh';
+    public const TEST_KEY = 'base64:SGVsbG8gV29ybGQh';
 
-    public function test_setting_key_persists_key_in_env()
+    public function testSettingKeyPersistsKeyInEnv()
     {
         $this->artisan('key:set '.self::TEST_KEY)
             ->expectsOutput('Application key set successfully.')
@@ -23,7 +23,7 @@ class KeySetCommandTest extends TestCase
         $this->assertSame($this->app['config']['app.key'], self::TEST_KEY);
     }
 
-    public function test_nothing_happens_when_key_is_not_empty_in_production_and_confirmation_is_no()
+    public function testNothingHappensWhenKeyIsNotEmptyInProductionAndConfirmationIsNo()
     {
         $this->createTmpEnv(self::ENV_KEY_STUB);
         $this->app['config']->set('app.key', self::TEST_KEY);
@@ -40,7 +40,7 @@ class KeySetCommandTest extends TestCase
             ->assertExitCode(1);
     }
 
-    public function test_missing_env_variable_throws_exception()
+    public function testMissingEnvVariableThrowsException()
     {
         $this->createTmpEnv(self::ENV_EMPTY_STUB);
 

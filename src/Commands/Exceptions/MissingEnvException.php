@@ -2,6 +2,8 @@
 
 namespace DistortedFusion\Env\Commands\Exceptions;
 
-class MissingEnvException extends \RuntimeException
+use RuntimeException;
+
+class MissingEnvException extends RuntimeException
 {
 }
