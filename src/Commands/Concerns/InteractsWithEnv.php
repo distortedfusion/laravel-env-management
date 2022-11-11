@@ -24,9 +24,7 @@ trait InteractsWithEnv
      */
     protected function envHas(string $key): bool
     {
-        $env = file_get_contents($this->laravel->environmentFilePath());
-
-        return strpos($env, $key) !== false;
+        return ! is_null($this->envGet($key));
     }
 
     protected function isValidKey(string $key): bool
