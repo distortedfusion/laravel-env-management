@@ -1,60 +1,43 @@
 # Available Commands
 
-All commands are enabled by default, refer to [Disabling Commands](https://distortedfusion.com/docs/distortedfusion/laravel-env-management/getting-started#disabling-commands) if you don't require all commands.
-
 ## env:set
 
+Replace an existing or append a new environment variable to the applications `.env` file.
 
+### Replacing Existing Environment Variables
 
-## app:url
+The `env:set` command requires 2 arguments, the environment variables `KEY` and `value`:
 
-Set the application url
-
-Setting a dynamic url during continuous deployment might be useful when, for example, you're running multiple installations per feature branch on dedicated sub-domains.
-
-### Usage
-
-To set an app url, simply run:
-
-```sh
-php artisan app:url http://staging.app.dev
+```bash
+php artisan env:set APP_NAME Laravel
 ```
 
-## app:version
+By wrapping the `value` in quotes you can provide strings with spaces:
 
-Get or set the application version
-
-Setting an application version isn't a built in Laravel feature.
-
-**Please note:** For this command you need to make changes to your application!
-
-- Add `APP_VERSION=` to your `.env` file, this is used to permanently store the application version.
-- Add the `version` config variable to your `config/app.php` like, `'version' => env('APP_VERSION'),`.
-
-### Usage
-
-To set a version, simply run:
-
-```sh
-php artisan app:version 1.0.0
+```bash
+php artisan env:set APP_NAME "Distorted Fusion"
 ```
 
-Running the command without specifying a version returns the currently set version:
+Strings containing double quotes should be escaped beforehand:
 
-```sh
-php artisan app:version
+```bash
+php artisan env:set JSON_CONFIG "{\"foo\": \"bar\"}"
 ```
 
-## key:set
+### Appending Existing Environment Variables
 
-Set the application key
+As a security measure you must supply `--apply` when adding new environment variables:
 
-Setting an existing application key during continuous deployment is useful when running various instances of the same application with a shared backend. Or different applications that share the same session store.
+```bash
+php artisan env:set NEW_VARIABLE "This didn't exist in the .env" --append
+```
 
-### Usage
+This will append the variable to the end of the `.env` file.
 
-To set an existing app key, simply run:
+### Setting Environment Variables In Production
 
-```sh
-php artisan key:set base64:SGVsbG8gV29ybGQh
+As a security measure you must supply `--force` when adding setting environment variables in production:
+
+```bash
+php artisan env:set APP_NAME "Distorted Fusion - Production" --force
 ```
