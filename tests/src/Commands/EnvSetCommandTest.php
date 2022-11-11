@@ -81,7 +81,7 @@ class EnvSetCommandTest extends TestCase
         $this->artisan('env:set '.self::TEST_INVALID_KEY.' '.self::TEST_VALUE);
     }
 
-    public function testMissingEnvVariableWithoutAppendThrowsException()
+    public function testMissingKeyWithoutAppendThrowsException()
     {
         $this->createTmpEnv(self::ENV_EMPTY_STUB);
 
