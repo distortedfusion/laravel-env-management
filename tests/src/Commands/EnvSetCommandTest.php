@@ -9,8 +9,8 @@ use InvalidArgumentException;
 class EnvSetCommandTest extends TestCase
 {
     public const TEST_INVALID_KEY = 'Invalid123';
-    public const TEST_KEY = 'FOO';
-    public const TEST_VALUE = 'baz';
+    public const TEST_KEY = 'APP_NAME';
+    public const TEST_VALUE = 'DistortedFusion.com';
     public const TEST_KEY_VALUE_PAIR = self::TEST_KEY.'='.self::TEST_VALUE;
 
     public const WRAPABLE_VALUE_WITH_SPACE = '{"foo": "bar"}';
@@ -18,7 +18,7 @@ class EnvSetCommandTest extends TestCase
     public const WRAPABLE_VALUE_WITH_EQUALS_SIGN = 'base64:eyJmb28iOiAiYmFyIn0=';
     public const WRAPABLE_VALUE_WITH_EQUALS_SIGN_WRAPPED = '"base64:eyJmb28iOiAiYmFyIn0="';
 
-    public const ORIGINAL_KEY_VALUE_PAIR = 'FOO=';
+    public const ORIGINAL_KEY_VALUE_PAIR = 'APP_NAME=Laravel';
 
     public function testSettingKeyValuePairUpdatesEnv()
     {

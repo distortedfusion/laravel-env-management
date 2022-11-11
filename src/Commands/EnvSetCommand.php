@@ -8,7 +8,7 @@ use InvalidArgumentException;
 
 class EnvSetCommand extends Command
 {
-    use Concerns\WritesToEnv;
+    use Concerns\InteractsWithEnv;
     use ConfirmableTrait;
 
     /**

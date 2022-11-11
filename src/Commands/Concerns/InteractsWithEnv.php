@@ -2,7 +2,7 @@
 
 namespace DistortedFusion\Env\Commands\Concerns;
 
-trait WritesToEnv
+trait InteractsWithEnv
 {
     protected function envGet(string $key): ?string
     {
@@ -27,27 +27,6 @@ trait WritesToEnv
         $env = file_get_contents($this->laravel->environmentFilePath());
 
         return strpos($env, $key) !== false;
-    }
-
-    /**
-     * Write a new environment file with the given version.
-     *
-     * @param string $replacementPattern
-     * @param string $replacement
-     *
-     * @return bool
-     *
-     * @deprecated
-     */
-    protected function writeNewEnvironmentFileWith(string $replacementPattern, string $replacement): bool
-    {
-        $action = file_put_contents($this->laravel->environmentFilePath(), preg_replace(
-            $replacementPattern,
-            $replacement,
-            file_get_contents($this->laravel->environmentFilePath())
-        ), LOCK_EX);
-
-        return $action !== false;
     }
 
     protected function isValidKey(string $key): bool
