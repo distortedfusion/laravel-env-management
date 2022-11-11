@@ -1,6 +1,10 @@
 # Getting Started
 
-A collection of artisan commands for managing environment variables during CI/CD.
+A collection of artisan commands for managing environment variables during CI/CD or development.
+
+```bash
+php artisan env:set APP_NAME "Distorted Fusion"
+```
 
 ## Installation
 
