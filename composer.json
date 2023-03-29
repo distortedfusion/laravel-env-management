@@ -1,9 +1,18 @@
 {
     "name": "distortedfusion/laravel-env-management",
     "description": "A collection of artisan commands for managing environment variables during CI/CD.",
-    "homepage": "https://github.com/distortedfusion/laravel-env-management",
+    "homepage": "https://distortedfusion.com/docs/distortedfusion/laravel-env-management",
+    "support": {
+        "issues": "https://github.com/distortedfusion/laravel-env-management/issues",
+        "source": "https://github.com/distortedfusion/laravel-env-management"
+    },
     "license": "MIT",
-    "keywords": ["distortedfusion", "laravel", "env", "management"],
+    "keywords": [
+        "distortedfusion",
+        "laravel",
+        "env",
+        "management"
+    ],
     "authors": [
         {
             "name": "Kevin Dierkx",
