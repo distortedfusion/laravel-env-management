@@ -2,7 +2,7 @@
 
 [![Latest Version](https://img.shields.io/github/tag/distortedfusion/laravel-env-management.svg?style=flat-square)](https://github.com/distortedfusion/laravel-env-management/tags)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE)
-[![Build Status](https://img.shields.io/github/workflow/status/distortedfusion/laravel-env-management/CI-CD/master?style=flat-square)](https://github.com/distortedfusion/laravel-env-management/actions)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/distortedfusion/laravel-env-management/ci.yml?branch=master&style=flat-square)](https://github.com/distortedfusion/laravel-env-management/actions)
 [![Code Coverage](https://img.shields.io/codecov/c/github/distortedfusion/laravel-env-management?style=flat-square&token=JBWSCLFCPW)](https://codecov.io/gh/distortedfusion/laravel-env-management)
 
 A collection of artisan commands for managing environment variables during CI/CD or development.
