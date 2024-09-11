@@ -20,6 +20,6 @@ composer require distortedfusion/laravel-env-management
 
 | Laravel | PHP            | Package |
 | ------- | -------------- | ------- |
-| 6.x     | ^7.2           | >= 1.0  |
-| 7.x     | ^7.2           | >= 1.0  |
 | 9.x     | ^8.0           | >= 2.0  |
+| 10.x    | ^8.1           | >= 2.0  |
+| 11.x    | ^8.1           | >= 2.0  |
