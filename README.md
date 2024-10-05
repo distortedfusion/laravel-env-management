@@ -13,7 +13,7 @@ php artisan env:set APP_NAME "Distorted Fusion"
 
 ## Documentation
 
-You will find full documentation on the dedicated [documentation](https://distortedfusion.com/docs/distortedfusion/laravel-env-management) site.
+You will find full documentation on the dedicated [documentation](https://distortedfusion.com/docs/distortedfusion/laravel-env-management/getting-started) site.
 
 ## Testing
 
